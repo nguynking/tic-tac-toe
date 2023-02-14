@@ -30,3 +30,10 @@ class Mark(enum.StrEnum):
         @cached_property
         def empty_count(self) -> int:
             return self.cells.count(" ")
+
+    @dataclass
+    class Move:
+        mark: Mark
+        cell_index: int
+        before_state: "GameState"
+        after_state: "Gamestate"
