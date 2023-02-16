@@ -1,2 +1,2 @@
 # tic-tac-toe
-A tic-tac-toe game engine using minimax algorithm.
+This is my personal project to learn some advanced concepts in Python and create an undefeatable AI player using minimax algorithm.
