@@ -1,5 +1,6 @@
 import abc
 import time
+import random
 
 from tic_tac_toe.logic.exceptions import InvalidMove
 from tic_tac_toe.logic.models import GameState, Mark, Move
@@ -32,3 +33,10 @@ class ComputerPlayer(Player, metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def get_computer_move(self, game_state: GameState) -> Move | None:
         """Return the computer's move in the given game state."""
+
+class RandomComputerPlayer(ComputerPlayer):
+    def get_computer_move(self, game_state: GameState) -> Move | None:
+        try:
+            return random.choice(game_state.possible_move)
+        except IndexError:
+            return None
