@@ -5,7 +5,7 @@ from tic_tac_toe.game.players import Player
 from tic_tac_toe.game.renderers import Renderer
 from tic_tac_toe.logic.exceptions import InvalidMove
 from tic_tac_toe.logic.models import GameState, Grid, Mark
-from tic_tac_toe.logic.validators import validate_player
+from tic_tac_toe.logic.validators import validate_players
 
 ErrorHandler: TypeAlias = Callable[[Exception], None]
 
@@ -17,7 +17,7 @@ class TicTacToe:
     error_handler: ErrorHandler | None = None
 
     def __post_init__(self):
-        validate_player(self.player1, self.player2)
+        validate_players(self.player1, self.player2)
 
     def play(self, starting_mark: Mark = Mark("X")) -> None:
         game_state = GameState(Grid(), starting_mark)
